@@ -1,210 +1,209 @@
 /* General Page Styling */
 body {
-    background-color: #04040D;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Red Hat Display", sans-serif;
+  background-color: #04040d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 /* Card Container */
 .card {
-    background: #07071A;
-    padding: 35px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    animation: fadeIn 0.8s ease-in-out;
-    transition: opacity 0.5s ease-in-out;
+  background: #07071a;
+  padding: 35px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  animation: fadeIn 0.8s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Profile Picture */
 .profile-pic {
-    width: 150px;
-    border-radius: 2px;
+  width: 150px;
+  border-radius: 2px;
 }
 
 /* ℹUser Info Section */
 .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    margin-right: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-right: 80px;
 }
 
 .info h1 {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Social Icons */
 .icons {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .icons a {
-    color: white;
-    font-size: 30px;
-    transition: 0.3s;
+  color: white;
+  font-size: 30px;
+  transition: 0.3s;
 }
 
 .icons a:hover {
-    color: #53BDA7;
+  color: #53bda7;
 }
 
 /* Name Styling */
 h1 {
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 h1:hover {
-    color: #53BDA7;
+  color: #53bda7;
 }
 
 .e621-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
 
 .e621-icon .svg-icon {
-    width: 32px;  
-    height: 32px;
-    fill: white;
-    transition: fill 0.3s ease-in-out;
-    
-    position: relative;
-    top: -2px;
+  width: 32px;
+  height: 32px;
+  fill: white;
+  transition: fill 0.3s ease-in-out;
+
+  position: relative;
+  top: -2px;
 }
 
 /* Hover Effect */
 .e621-icon:hover .svg-icon {
-    fill: #53BDA7;
+  fill: #53bda7;
 }
 
 /* Fade-in Animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*  Popup General Styling */
 .popup {
-    background-color: #04040D;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+  background-color: #04040d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s;
 }
 
 /* Popup Content */
 .popup-content {
-    background: #07071A;
-    color: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Spacing between text and buttons */
+  background: #07071a;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Spacing between text and buttons */
 }
 
 /* Popup Button Container */
 .popup-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 35px; /* Space between buttons */
-    margin-top: 10px; /* Space between text and buttons */
+  display: flex;
+  justify-content: center;
+  gap: 35px; /* Space between buttons */
+  margin-top: 10px; /* Space between text and buttons */
 }
 
 /* Standard Popup Buttons */
 .popup-buttons button {
-    background: #53BDA7;
-    color: white;
-    border: none;
-    padding: 12px 25px; /* Equal size buttons */
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: 0.3s;
-    min-width: 120px; /* Ensures both buttons are the same width */
-    text-align: center;
+  background: #53bda7;
+  color: white;
+  border: none;
+  padding: 12px 25px; /* Equal size buttons */
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: 0.3s;
+  min-width: 120px; /* Ensures both buttons are the same width */
+  text-align: center;
 }
 
 .popup-buttons button:hover {
-    background: #5187bd;
+  background: #5187bd;
 }
 
 /* Age Warning Popup */
 .age-warning .popup-content {
-    background: #180606;
+  background: #180606;
 }
 
 /*  Age Warning Buttons */
 .age-warning .popup-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-top: 10px;
 }
 
 .age-warning .popup-buttons button {
-    background-color: #bd51bd;
-    border: none;
-    color: white;
-    padding: 12px 25px; /* Same size as standard buttons */
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-    min-width: 120px;
-    text-align: center;
+  background-color: #bd51bd;
+  border: none;
+  color: white;
+  padding: 12px 25px; /* Same size as standard buttons */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  min-width: 120px;
+  text-align: center;
 }
 
 .age-warning .popup-buttons button:hover {
-    background-color: #a144a1;
+  background-color: #a144a1;
 }
 
 /* Popup Show/Hide */
 .show {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Card Fade Effect */
 .hidden {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Make the name link turn green on hover */
+/* Name Link Styling */
 .name-link {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease-in-out;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
 }
 
-/* Ensure hover works properly */
-.name-link:hover, h1:hover .name-link {
-    color: #53BDA7 !important; /* Force the green color */
+.name-link:hover {
+  color: #53bda7;
 }
