@@ -73,12 +73,12 @@ h1:hover {
   vertical-align: middle;
 }
 
-.e621-icon .svg-icon {
-  width: 32px;
+.e621-icon img {
+  width: 32px; /* Adjust size */
   height: 32px;
-  fill: white;
-  transition: fill 0.3s ease-in-out;
-
+  display: block; /* Prevents layout issues */
+  filter: brightness(0) invert(1); /* Makes it white */
+  transition: filter 0.3s ease-in-out;
   position: relative;
   top: -2px;
 }
