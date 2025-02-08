@@ -1,32 +1,72 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Napp - n4ppstar</title>
+    <title>Love, Napp</title>
+
+    <!-- External Styles & Fonts -->
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/db8fd9658d.js" crossorigin="anonymous"></script>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-    </style>
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&family=Red+Hat+Display:wght@300..900&display=swap" rel="stylesheet">
 </head>
- 
 <body>
+
+    <!-- Profile Card -->
     <div class="card">
         <div class="profile-container">
             <img src="http://n4.ppstar.art/pfp.jpg" alt="Profile Picture" class="profile-pic">
         </div>
         <div class="info">
-            <h1>Napp • n4ppstar</h1>
+            <h1>
+                <a href="https://n4.ppstar.art" class="name-link">Napp • n4ppstar</a>
+            </h1>
             <div class="icons">
-                <a href="https://github.com/AetCloud" title="Github"><i class="fa-brands fa-github"></i></a>
-                <a href="https://x.com/nappstuff" title="Twitter or whatever..."><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://discord.gg/t3X5xhBRJP" title="Discord Server"><i class="fa-brands fa-discord"></i></a>
-              <a href="https://bsky.app/profile/n4.ppstar.art" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+                <a href="https://github.com/AetCloud" title="GitHub" onclick="openPopup(event, 'Open GitHub?', 'https://github.com/AetCloud')">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://x.com/nappstuff" title="Twitter" onclick="openPopup(event, 'Open X?', 'https://x.com/nappstuff')">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://discord.gg/t3X5xhBRJP" title="Discord Server" onclick="openAgeWarning(event, 'My Discord Server is for 18+ users only. Proceed?', 'https://discord.gg/t3X5xhBRJP')">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href="https://bsky.app/profile/n4.ppstar.art" title="Bluesky" onclick="openAgeWarning(event, 'This content is for 18+ users only. Proceed?', 'https://bsky.app/profile/n4.ppstar.art')">
+                    <i class="fa-brands fa-bluesky"></i>
+                </a>
+                <a href="https://www.furaffinity.net/user/aeeee" title="FurAffinity" onclick="openPopup(event, 'Open FurAffinity?', 'https://www.furaffinity.net/user/aeeee')">
+                    <i class="fa-solid fa-paw"></i>
+                </a>
+                <a href="https://e621.net/users/766846" title="e621" onclick="openAgeWarning(event, 'This content is for 18+ users only. Proceed?', 'https://e621.net/users/766846')" class="e621-icon">
+    <img src="e621-icon.svg" alt="e621 logo">
+</a>
             </div>
         </div>
     </div>
-</body>
 
+    <!-- General Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p id="popup-text">This is a popup message.</p>
+            <div class="popup-buttons">
+                <button onclick="closePopup()">Close</button>
+                <button onclick="confirmAction()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 18+ Age Warning Popup -->
+    <div class="popup age-warning" id="age-warning">
+        <div class="popup-content">
+            <p id="age-warning-text">⚠️ This content is 18+. Are you sure you want to proceed?</p>
+            <div class="popup-buttons">
+                <button onclick="closeAgeWarning()">No, I'm not</button>
+                <button onclick="confirmAgeAction()">Yes, I'm 18+</button>
+            </div>
+        </div>
+    </div>
+
+</body>
 </html>
