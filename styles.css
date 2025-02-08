@@ -1,60 +1,71 @@
 body {
-    background-color: #04040D;  /* Website background */
+    background-color: #04040D;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: "Red Hat Display", sans-serif;
 }
 
 .card {
-    background: #07071A;  /* Card background */
-    padding: 30px;
-    border-radius: 12px;
+    background: #07071A;
+    padding: 35px;
+    border-radius: 10px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-.profile-container {
-    display: flex; 
-    align-items: center;
-    gap: 15px;
-    width: 100%;
+    gap: 35px;  /* Space between pfp and text */
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 .profile-pic {
-    width: 125px; /* Adjust size */
-    border-radius: 5px;
-    object-fit: cover;
+    width: 150px;
+    border-radius: 2px;
 }
 
 .info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 10px;
+    margin-right: 80px;
+}
+
+.info h1 {
+    margin: 0;
+    padding: 0;
 }
 
 .icons {
     display: flex;
-    gap: 14px;
+    gap: 15px; /* Space between icons */
 }
 
 .icons a {
     color: white;
-    font-size: 24px;
+    font-size: 30px;
     transition: 0.3s;
 }
 
 .icons a:hover {
-    color: #53BDA7;
+    color: #53BDA7; 
 }
 
 h1 {
-  transition: 0.3s;
+    transition: 0.3s;
 }
 
 h1:hover {
-  color: #53BDA7;
+    color: #53BDA7;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
