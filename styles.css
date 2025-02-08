@@ -197,13 +197,14 @@ h1:hover {
     pointer-events: none;
 }
 
-/* Name Link Styling */
+/* Make the name link turn green on hover */
 .name-link {
     text-decoration: none;
     color: white;
-    transition: color 0.3s;
+    transition: color 0.3s ease-in-out;
 }
 
-.name-link:hover {
-    color: #53BDA7;
+/* Ensure hover works properly */
+.name-link:hover, h1:hover .name-link {
+    color: #53BDA7 !important; /* Force the green color */
 }

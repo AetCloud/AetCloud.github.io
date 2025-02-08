@@ -1,3 +1,25 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Attach event listeners for popup buttons
+    document.querySelectorAll("[data-popup]").forEach(button => {
+        button.addEventListener("click", function (event) {
+            openPopup(event, this.dataset.message, this.dataset.link);
+        });
+    });
+
+    document.querySelectorAll("[data-age-warning]").forEach(button => {
+        button.addEventListener("click", function (event) {
+            openAgeWarning(event, this.dataset.message, this.dataset.link);
+        });
+    });
+
+    // Attach event listeners for close and confirm buttons
+    document.getElementById("popup-close")?.addEventListener("click", closePopup);
+    document.getElementById("popup-confirm")?.addEventListener("click", confirmAction);
+    document.getElementById("age-warning-close")?.addEventListener("click", closeAgeWarning);
+    document.getElementById("age-warning-confirm")?.addEventListener("click", confirmAgeAction);
+});
+
+
 // Variables to store links for popups
 let linkToOpen = "";
 let ageWarningLink = "";
