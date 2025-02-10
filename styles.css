@@ -243,7 +243,7 @@ h1:hover {
   }
 
   .profile-pic {
-      width: 100px; /* Smaller size for mobile */
+      width: 150px; /* Smaller size for mobile */
       margin-bottom: 10px; /* Space between image and text */
   }
 
