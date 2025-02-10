@@ -69,3 +69,35 @@ function togglePopup(popupId, show) {
   document.getElementById(popupId).classList.toggle("show", show);
   document.querySelector(".card").classList.toggle("hidden", show);
 }
+
+function openPopup(event, message, link) {
+    if (event) event.preventDefault();
+
+    let popup = document.getElementById("popup");
+    document.getElementById("popup-text").textContent = message;
+    linkToOpen = link;
+    
+    // Show popup and add slide-up effect
+    popup.classList.add("show", "slide-up");
+
+    // Remove the animation class after it plays once
+    setTimeout(() => {
+        popup.classList.remove("slide-up");
+    }, 300); // Matches the 0.3s animation time
+}
+
+function openAgeWarning(event, message, link) {
+    if (event) event.preventDefault();
+
+    let popup = document.getElementById("age-warning");
+    document.getElementById("age-warning-text").textContent = message;
+    ageWarningLink = link;
+    
+    // Show popup and add shake effect
+    popup.classList.add("show", "shake");
+
+    // Remove the shake effect after animation completes
+    setTimeout(() => {
+        popup.classList.remove("shake");
+    }, 300); // Matches the 0.3s animation time
+}

@@ -207,3 +207,27 @@ h1:hover {
 .name-link:hover {
   color: #53bda7;
 }
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Slide-up animation for the regular popup */
+@keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Shake effect for the age warning popup */
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Slide-up effect for the regular popup */
+.slide-up {
+    animation: slideUp 0.3s ease-in-out;
+}
