@@ -231,3 +231,42 @@ h1:hover {
 .slide-up {
     animation: slideUp 0.3s ease-in-out;
 }
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .card {
+      display: flex;
+      flex-direction: column !important; /* Stack items vertically */
+      align-items: center !important; /* Center items */
+      text-align: center !important; /* Center text */
+      gap: 15px; /* Adjust spacing */
+  }
+
+  .profile-pic {
+      width: 100px; /* Smaller size for mobile */
+      margin-bottom: 10px; /* Space between image and text */
+  }
+
+  .info {
+      margin-right: 0 !important; /* Remove right margin */
+      align-items: center;
+  }
+
+  .icons {
+      justify-content: center; /* Center icons */
+  }
+}
+
+/* Fix Popup Width for Mobile */
+.popup-content {
+  max-width: 90%; /* Adjust width to fit mobile */
+  width: 400px; /* Default for larger screens */
+}
+
+/* Make Popups Match Mobile Card */
+@media screen and (max-width: 768px) {
+  .popup-content {
+      width: 90% !important; /* Full width for smaller screens */
+      max-width: 300px !important; /* Matches the card */
+  }
+}
