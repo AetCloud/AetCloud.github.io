@@ -1,4 +1,3 @@
-/* General Page Styling */
 body {
   background-color: #04040d;
   color: white;
@@ -7,9 +6,64 @@ body {
   align-items: center;
   height: 100vh;
   font-family: "Red Hat Display", sans-serif;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
 }
 
-/* Card Container */
+.content-container {
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s;
+}
+
+@keyframes startAnimation {
+  0% {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) scale(10);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(300px);
+    opacity: 1;
+  }
+}
+
 .card {
   background: #07071a;
   padding: 35px;
@@ -17,17 +71,36 @@ body {
   display: flex;
   align-items: center;
   gap: 35px;
-  animation: fadeIn 0.8s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeInZoomIn 0.5s 1s ease-in-out forwards;
+  transition: opacity 0.75s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.75s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/* Profile Picture */
+.card.popup-active {
+  transform: translateY(-200px) scale(0.75);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+@keyframes fadeInZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .profile-pic {
   width: 150px;
   border-radius: 2px;
 }
 
-/* ℹUser Info Section */
 .info {
   display: flex;
   flex-direction: column;
@@ -36,12 +109,6 @@ body {
   margin-right: 80px;
 }
 
-.info h1 {
-  margin: 0;
-  padding: 0;
-}
-
-/* Social Icons */
 .icons {
   display: flex;
   gap: 15px;
@@ -57,7 +124,6 @@ body {
   color: #53bda7;
 }
 
-/* Name Styling */
 h1 {
   transition: 0.3s;
 }
@@ -74,38 +140,26 @@ h1:hover {
 }
 
 .e621-icon img {
-  width: 32px; /* Adjust size */
+  width: 32px;
   height: 32px;
-  display: block; /* Prevents layout issues */
-  filter: brightness(0) invert(1); /* Makes it white */
+  display: block;
+  filter: brightness(0) invert(1);
   transition: filter 0.3s ease-in-out;
   position: relative;
   top: -2px;
 }
 
-/* Hover Effect */
 .e621-icon:hover .svg-icon {
   fill: #53bda7;
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/*  Popup General Styling */
 .popup {
   background-color: #04040d;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1001; /* Ensure it's above the card */
   width: 100%;
   height: 100%;
   display: flex;
@@ -116,7 +170,6 @@ h1:hover {
   transition: opacity 0.3s ease-in-out, visibility 0.3s;
 }
 
-/* Popup Content */
 .popup-content {
   background: #07071a;
   color: white;
@@ -126,41 +179,34 @@ h1:hover {
   width: 400px;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Spacing between text and buttons */
+  gap: 10px;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s;
 }
 
-/* Popup Button Container */
 .popup-buttons {
   display: flex;
   justify-content: center;
-  gap: 35px; /* Space between buttons */
-  margin-top: 10px; /* Space between text and buttons */
+  gap: 35px;
+  margin-top: 10px;
 }
 
-/* Standard Popup Buttons */
 .popup-buttons button {
   background: #53bda7;
   color: white;
   border: none;
-  padding: 12px 25px; /* Equal size buttons */
+  padding: 12px 25px;
   cursor: pointer;
   font-size: 16px;
   border-radius: 5px;
   transition: 0.3s;
-  min-width: 120px; /* Ensures both buttons are the same width */
+  min-width: 120px;
   text-align: center;
 }
 
-.popup-buttons button:hover {
-  background: #5187bd;
-}
-
-/* Age Warning Popup */
 .age-warning .popup-content {
   background: #180606;
 }
 
-/*  Age Warning Buttons */
 .age-warning .popup-buttons {
   display: flex;
   justify-content: center;
@@ -172,7 +218,7 @@ h1:hover {
   background-color: #bd51bd;
   border: none;
   color: white;
-  padding: 12px 25px; /* Same size as standard buttons */
+  padding: 12px 25px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
@@ -181,23 +227,16 @@ h1:hover {
   text-align: center;
 }
 
-.age-warning .popup-buttons button:hover {
-  background-color: #a144a1;
-}
-
-/* Popup Show/Hide */
 .show {
   visibility: visible;
   opacity: 1;
 }
 
-/* Card Fade Effect */
 .hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Name Link Styling */
 .name-link {
   text-decoration: none;
   color: white;
@@ -209,64 +248,160 @@ h1:hover {
 }
 
 @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
-/* Slide-up animation for the regular popup */
 @keyframes slideUp {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-/* Shake effect for the age warning popup */
 .shake {
-    animation: shake 0.3s ease-in-out;
+  animation: shake 0.3s ease-in-out;
 }
 
-/* Slide-up effect for the regular popup */
 .slide-up {
-    animation: slideUp 0.3s ease-in-out;
+  animation: slideUp 0.3s ease-in-out;
 }
 
-/* Mobile */
+@keyframes popupAnimation {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-200px) scale(0.75);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-200px) scale(0.75);
+  }
+}
+
+.popup-animation {
+  animation: popupAnimation 0.5s forwards;
+}
+
+.card.popup-animation {
+  animation: popupAnimation 0.5s forwards;
+}
+
+@keyframes popupAnimationReverse {
+  0% {
+    transform: translateY(-200px) scale(0.75);
+  }
+
+  50% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1; /* Fade in the popup */
+  }
+}
+
+.popup-animation-reverse {
+  animation: popupAnimationReverse 0.75s forwards;
+}
+
+.card.popup-animation-reverse {
+  animation: popupAnimationReverse 0.75s forwards;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.intro-animation {
+  animation: fadeInZoomIn 0.5s 1s ease-in-out forwards;
+}
+
 @media screen and (max-width: 768px) {
   .card {
-      display: flex;
-      flex-direction: column !important; /* Stack items vertically */
-      align-items: center !important; /* Center items */
-      text-align: center !important; /* Center text */
-      gap: 15px; /* Adjust spacing */
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 15px;
   }
 
   .profile-pic {
-      width: 150px; /* Smaller size for mobile */
-      margin-bottom: 10px; /* Space between image and text */
+    width: 150px;
+    margin-bottom: 10px;
   }
 
   .info {
-      margin-right: 0 !important; /* Remove right margin */
-      align-items: center;
+    margin-right: 0 !important;
+    align-items: center;
   }
 
-  .icons {
-      justify-content: center; /* Center icons */
+  @keyframes startAnimation {
+    0% {
+      transform: translate(-50%, 100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(200px);
+      opacity: 1;
+    }
   }
 }
 
-/* Fix Popup Width for Mobile */
 .popup-content {
-  max-width: 90%; /* Adjust width to fit mobile */
-  width: 400px; /* Default for larger screens */
+  max-width: 90%;
+  width: 400px;
 }
 
-/* Make Popups Match Mobile Card */
 @media screen and (max-width: 768px) {
   .popup-content {
-      width: 90% !important; /* Full width for smaller screens */
-      max-width: 300px !important; /* Matches the card */
+    width: 90% !important;
+    max-width: 300px !important;
   }
+}
+
+@keyframes empty-animation {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 1; transform: scale(1); }
 }
