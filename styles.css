@@ -1,0 +1,79 @@
+body {
+  background-color: #04040d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Red Hat Display", sans-serif;
+  margin: 0;
+}
+
+.card {
+  background: #07071a;
+  padding: 35px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.hidden-buttons {
+  display: none !important;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  font-size: 30px;
+  margin-top: 10px;
+}
+.icons a {
+  color: white;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.icons a:hover {
+  color: #53bda7;
+}
+.icons i {
+  color: white !important;
+  font-size: 30px !important;
+  display: inline-block;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.popup.show {
+  display: flex;
+}
+.popup-content {
+  background: #07071a;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #333;
+}
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}

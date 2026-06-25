@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love, Napp</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&family=Red+Hat+Display:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="card">
+        <div class="profile-container">
+          <img alt="Profile Picture" class="profile-pic" id="pfp-image" />
+        </div>
+        <div class="info">
+          <h1><span class="name-link">Napp • napp.cat</span></h1>
+          <div class="icons hidden-buttons">
+            <a
+              href="#"
+              onclick="
+                openPopup(event, 'Open GitHub?', 'https://github.com/AetCloud')
+              "
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="#"
+              onclick="openPopup(event, 'Open X?', 'https://x.com/nappstuff')"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="#"
+              onclick="
+                openAgeWarning(
+                  event,
+                  'My Discord Server is for 18+ only.',
+                  'https://discord.gg/t3X5xhBRJP',
+                )
+              "
+            >
+              <i class="fa-brands fa-discord"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <p id="popup-text"></p>
+          <div class="popup-buttons">
+            <button onclick="closePopup()">Close</button>
+            <button onclick="confirmAction()">Confirm</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup age-warning" id="age-warning">
+        <div class="popup-content">
+          <p id="age-warning-text"></p>
+          <div class="popup-buttons">
+            <button onclick="closeAgeWarning()">Close</button>
+            <button onclick="confirmAgeAction()">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
